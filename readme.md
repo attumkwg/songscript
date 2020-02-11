@@ -1,5 +1,7 @@
 ## Nuxt.js × Laravel
 
+歌詞を保存してブレスの位置やコーラスの位置・度などをつけたりできるようにする予定でした。
+
 .env.exampleから.envを作成後
 
 ```yarn install --save```
