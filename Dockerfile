@@ -16,4 +16,4 @@ RUN useradd -m -s /bin/bash -u 1000 -g users ubuntu
 RUN apt install sudo
 # ubuntuでのsudoのパスワード要求をしないように
 RUN echo "ubuntu ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
-RUN chown ubuntu:users /srv
+RUN chown -R ubuntu:users /srv
