@@ -8,8 +8,8 @@ jobs:
           name: Setup docker
           command: |
             docker-compose build
-            docker-compose up -d
             docker-compose run app composer install
+            docker-compose up -d
       - run: yarn install
       - run:
           name: Setup Laravel
