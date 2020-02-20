@@ -21,7 +21,7 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev --enablerepo=remi-php70 php-mysqlnd
+      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev --enablerepo=remi-php72 php-mysqlnd
       - run: sudo docker-php-ext-install zip
 
       # Download and cache dependencies
