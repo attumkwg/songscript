@@ -21,7 +21,7 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
+      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev --enablerepo=remi-php70 php-mysqlnd
       - run: sudo docker-php-ext-install zip
 
       # Download and cache dependencies
@@ -49,7 +49,6 @@ jobs:
             - node_modules
 
       # prepare the database
-      - run: touch storage/testing.sqlite
       - run: php artisan migrate --env=testing --database=mysql_testing --force
 
       # run tests with phpunit or codecept
