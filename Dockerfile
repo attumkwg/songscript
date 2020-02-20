@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 COPY scripts/provisioning.sh /tmp/provisioning.sh
+RUN chmod +x /tmp/provisioning.sh
 # provisioning.sh による必要ライブラリのインストール
 RUN /tmp/provisioning.sh
 
