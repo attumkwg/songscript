@@ -11,7 +11,10 @@ services:
     ports:
       - "3306:3306"
   app:
-    build: . # Dockerfileのディレクトリを指定
+    build:
+      context: . # Dockerfileのディレクトリを指定
+      args:
+        UID: ubuntu
     user: ubuntu
     volumes: # host/docker間で共有するデータを指定
       - .:/srv
