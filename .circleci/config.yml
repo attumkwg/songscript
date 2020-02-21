@@ -29,10 +29,10 @@ jobs:
           name: Setup Laravel
           command: |
             cp .env.testing .env
-            docker-compose run app php artisan key:generate
-            docker-compose run app php artisan migrate:refresh --seed
+            docker-compose run app sudo php artisan key:generate
+            docker-compose run app sudo php artisan migrate:refresh --seed
       - run: yarn run build
       - run:
           name: Run Test
           command: |
-            docker-compose run app vendor/bin/phpunit
+            docker-compose run app sudo vendor/bin/phpunit
