@@ -14,7 +14,9 @@ services:
     build:
       context: . # Dockerfileのディレクトリを指定
       args:
-        UID: ubuntu
+        UID: 1000
+        GID: users
+        UNAME: ubuntu
     user: ubuntu
     volumes: # host/docker間で共有するデータを指定
       - .:/srv
