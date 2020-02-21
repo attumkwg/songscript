@@ -24,15 +24,24 @@ jobs:
 
             # Install Yarn
             npm install -g yarn@1.22.0
-      - run: yarn install
+
+            # Install node_modules
+            yarn install
       - run:
           name: Setup Laravel
           command: |
             cp .env.testing .env
             docker-compose run app sudo php artisan key:generate
             docker-compose run app sudo php artisan migrate:refresh --seed
-      - run: yarn run build
       - run:
-          name: Run Test
+          name: Setup Nuxt.js
+          command: |
+            yarn run build
+      - run:
+          name: Run Laravel Test
           command: |
             docker-compose run app sudo vendor/bin/phpunit
+      - run:
+          name: Run Nuxt.js Test
+          command: |
+            yarn run test
