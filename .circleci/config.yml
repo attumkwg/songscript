@@ -9,7 +9,7 @@ jobs:
           command: |
             docker-compose build
             docker-compose up -d
-            docker-compose run app composer install
+            docker-compose run app sudo composer install
       - run: yarn install
       - run:
           name: Setup Laravel
