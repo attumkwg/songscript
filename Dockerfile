@@ -17,3 +17,4 @@ RUN apt install sudo
 # ubuntuでのsudoのパスワード要求をしないように
 RUN echo "ubuntu ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN chown -R ubuntu:users /srv
+RUN chmod -R g+x /srv
