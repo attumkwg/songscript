@@ -22,7 +22,7 @@ services:
       - .:/srv
       - ./docker/nginx.conf:/etc/nginx/sites-enabled/bcm
       - ./docker/php-fpm.conf:/etc/php/7.2/fpm/pool.d/bcm.conf
-    command: chmod -R +x /srv && chmod +x docker/entrypoint-app.sh && docker/entrypoint-app.sh # 起動処理を設定
+    command: chown -R ubuntu:user /src && chmod -R g+x /srv && chmod +x docker/entrypoint-app.sh && docker/entrypoint-app.sh # 起動処理を設定
     depends_on:
       - mysql
     links:
