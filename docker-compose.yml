@@ -15,7 +15,7 @@ services:
       context: . # Dockerfileのディレクトリを指定
       args:
         UID: 1000
-        GID: users
+        GID: 1000
         UNAME: ubuntu
     user: ubuntu
     volumes: # host/docker間で共有するデータを指定
