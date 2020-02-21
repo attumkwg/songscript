@@ -19,11 +19,11 @@ jobs:
             source $BASH_ENV
 
             # Install NodeJS
-            nvm install v10.11.0
-            nvm alias default v10.11.0
+            nvm install v12.16.1
+            nvm alias default v12.16.1
 
             # Install Yarn
-            npm install -g yarn@1.9.4
+            npm install -g yarn@1.22.0
       - run: yarn install
       - run:
           name: Setup Laravel
