@@ -7,6 +7,7 @@ services:
       - "${HOME}/book-management_mysql:/var/lib/mysql"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: laravel
       TZ: "Asia/Tokyo"
     ports:
       - "3306:3306"
