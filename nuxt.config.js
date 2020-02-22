@@ -1,4 +1,6 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export default {
   mode: 'spa',
@@ -57,7 +59,7 @@ export default {
   ],
 
   proxy: {
-    '/api': 'http://localhost:8000',
+    '/api': 'http://localhost:8000'
   },
   /*
      ** Axios module configuration
@@ -80,6 +82,16 @@ export default {
     /*
          ** You can extend webpack config here
          */
-    extend () {}
+    extend (config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue|ts)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
   }
 }
