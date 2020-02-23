@@ -83,6 +83,9 @@ export default {
          ** You can extend webpack config here
          */
     extend (config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = 'inline-cheap-module-source-map'
+      }
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
@@ -93,5 +96,8 @@ export default {
         })
       }
     }
+  },
+  configureWebpack: {
+    devtool: 'source-map'
   }
 }
