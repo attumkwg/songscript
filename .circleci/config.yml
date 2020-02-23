@@ -55,8 +55,6 @@ jobs:
       - run:
           name: heroku maintenance on
           command: |
-            echo ${HEROKU_APP_NAME_PROD}
-            echo $HEROKU_APP_NAME_PROD
             heroku maintenance:on --app ${HEROKU_APP_NAME_PROD}
       - run:
           name: heroku deploy
