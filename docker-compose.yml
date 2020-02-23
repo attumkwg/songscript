@@ -7,10 +7,10 @@ services:
       - "${HOME}/book-management_mysql:/var/lib/mysql"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_DATABASE: laravel
+      MYSQL_DATABASE: ${DB_DATABASE}
       TZ: "Asia/Tokyo"
     ports:
-      - "3306:3306"
+      - "${DB_PORT}:${DB_PORT}"
   app:
     build:
       context: . # Dockerfileのディレクトリを指定
@@ -18,12 +18,15 @@ services:
         UID: 1000
         GID: 1000
         UNAME: ubuntu
+        INSTALL_XDEBUG: ${INSTALL_XDEBUG}
     user: ubuntu
     volumes: # host/docker間で共有するデータを指定
       - .:/srv
       - ./docker/nginx.conf:/etc/nginx/sites-enabled/bcm
       - ./docker/php-fpm.conf:/etc/php/7.2/fpm/pool.d/bcm.conf
-    command: chmod +x docker/entrypoint-app.sh && docker/entrypoint-app.sh # 起動処理を設定
+      - ./docker/xdebug.ini:/etc/php/7.2/fpm/conf.d/xdebug.ini
+    command: > # 起動処理を設定
+      bash -c "chmod +x docker/entrypoint-app.sh && docker/entrypoint-app.sh"
     depends_on:
       - mysql
     links:

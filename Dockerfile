@@ -18,3 +18,11 @@ RUN apt install sudo
 RUN echo "ubuntu ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN chown -R ubuntu:users /srv
 RUN chmod -R g+x /srv
+
+# 開発環境でのみ有効となるようxdebugの設定を行う
+ARG INSTALL_XDEBUG=false
+
+RUN if [ ${INSTALL_XDEBUG} = true ]; then \
+    pecl channel-update pecl.php.net \
+    && pecl install xdebug \
+    ;fi

@@ -17,6 +17,8 @@ package_install php-xml
 package_install php-zip
 package_install php-redis
 package_install php-intl
+package_install php-pear
+package_install php-dev
 package_install nginx
 package_install composer
 
