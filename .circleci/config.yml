@@ -48,7 +48,6 @@ jobs:
             yarn run test
 
   deploy-prod:
-    context: heroku
     machine:
       image: circleci/classic:edge
     steps:
@@ -66,7 +65,7 @@ jobs:
       - run:
           name: heroku maintenance off
           command: |
-            heroku maintenance:off --app "${HEROKU_APP_NAME_PROD}"
+            heroku maintenance:off --app ${HEROKU_APP_NAME_PROD}
           
 workflows:
   version: 2
