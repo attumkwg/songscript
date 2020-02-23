@@ -48,6 +48,7 @@ jobs:
             yarn run test
 
   deploy-prod:
+    context: heroku
     machine:
       image: circleci/classic:edge
     steps:
