@@ -25,9 +25,15 @@
             "request": "launch",
             "port": 9000,
             "pathMappings": {
-                // {docker上のdocument root}:{ローカルのdocument root}
+                // {docker上のdocument root}
                 "/srv": "${workspaceRoot}"
             }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Full-stack",
+            "configurations": ["Launch Chrome", "Listen for XDebug"]
         }
     ]
 }
